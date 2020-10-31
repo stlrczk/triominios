@@ -34,22 +34,18 @@ export default ({ name }) => {
         totalScore={totalPlayerScore}
         currentMoveScore={currentMoveScore}
       />
-      <hr />
       <StoneCreator
         onStoneUpdate={(stoneValue) => setCurrentStone(stoneValue)}
         currentStoneSides={currentStone}
       />
-      <hr />
       <BonusPicker
         onBonusSelect={(bonusCode) => setCurrentBonusKey(bonusCode)}
         currentBonus={currentBonusKey}
       />
-      <hr />
       <BankWithdrawals
         onWithdrawSelect={(withdrawCode) => setCurrentWidthdraw(withdrawCode)}
         currentWithdraw={currentWithdraw}
       />
-      <hr />
       <button className="submit" onClick={submitMove}>
         Submit
       </button>

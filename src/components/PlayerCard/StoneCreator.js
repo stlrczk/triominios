@@ -22,12 +22,12 @@ export default ({ onStoneUpdate, currentStoneSides = {} }) => {
 
   return (
     <div className="stones">
-      <p>
+      <div>
         {"△ "}
         {Object.values(currentStoneSides).map((el, key) =>
           key + 1 === currentSide ? <u> {el} </u> : ` ${el} `
         )}
-      </p>
+      </div>
       <button onClick={handleClearSides}>❌</button>
       {STONE_NUMBERS.map((stone) => (
         <button onClick={() => handleStoneUpdate(stone)}>{stone}</button>

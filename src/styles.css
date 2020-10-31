@@ -8,8 +8,11 @@ body {
   text-align: center;
   color: #fafbe7;
   display: flex;
-  height: 100vh;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .playerCard {
@@ -37,11 +40,6 @@ button {
   border-radius: 3px;
 }
 
-hr {
-  border: 1px dotted #376d7a;
-  width: 95%;
-}
-
 button.active {
   outline: 3px dotted white;
   font-weight: bold;
@@ -49,6 +47,8 @@ button.active {
 
 .stones button {
   background: #f8ffad;
+  min-width: 100px;
+  display: inline-block;
 }
 
 .bonus button {
@@ -58,17 +58,21 @@ button.active {
 .bank button {
   background: #fafbe7;
 }
-
+.bank button,
+.bonus button {
+  font-size: 20px;
+}
 button.submit {
   background: #aedfa4;
   width: 90%;
+  margin-bottom: 0;
 }
 
 .scores {
   background: #aedfa4;
   display: inline-block;
   min-width: 200px;
-  margin: 20px;
+  margin: 0 20px;
   color: #2f4858;
 }
 .playerName {
@@ -77,4 +81,5 @@ button.submit {
 .currentMove,
 .totalScore {
   font-weight: normal;
+  margin: 10px 0;
 }
