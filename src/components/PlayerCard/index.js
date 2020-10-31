@@ -8,7 +8,7 @@ import { BONUSES, BANK_WITHDRAWALS } from "./constants";
 
 const getSavedTotalPlayerScore = (name) => {
   const savedUserTotal = localStorage.getItem(`user-${name}`);
-  console.log({ savedUserTotal });
+
   if (/\d/.test(savedUserTotal)) {
     return parseInt(savedUserTotal, 10);
   }

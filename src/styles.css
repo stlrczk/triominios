@@ -41,7 +41,8 @@ button {
 }
 
 button.active {
-  outline: 3px dotted white;
+  border: 3px dotted white;
+  margin: 7px;
   font-weight: bold;
 }
 
@@ -58,6 +59,10 @@ button.active {
 .bank button {
   background: #fafbe7;
 }
+.bank button.active {
+  border-color: #2f4858;
+}
+
 .bank button,
 .bonus button {
   font-size: 20px;
