@@ -1,12 +1,9 @@
 import React from "react";
 
-export default ({ totalScore, currentMoveScore }) => (
-  <div>
-    <h1>
-      Total: {totalScore}
-      {currentMoveScore ? (
-        <small>{`, current move: ${currentMoveScore}`}</small>
-      ) : null}
-    </h1>
+export default ({ playerName, totalScore, currentMoveScore }) => (
+  <div className="scores">
+    <p className="playerName">{playerName}</p>
+    <h1 className="totalScore">{totalScore}</h1>
+    <h2 className="currentMove">({currentMoveScore || 0})</h2>
   </div>
 );

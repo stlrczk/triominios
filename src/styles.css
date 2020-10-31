@@ -1,6 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  font-family: sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   text-align: center;
+  color: #fafbe7;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.playerCard {
+  background: #2f4858;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.playerCard:last-of-type {
+  background: #376d7a;
 }
 
 small {
@@ -9,6 +30,51 @@ small {
 }
 
 button {
-  padding: 20px;
+  padding: 20px 30px;
   margin: 10px;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+hr {
+  border: 1px dotted #376d7a;
+  width: 95%;
+}
+
+button.active {
+  outline: 3px dotted white;
+  font-weight: bold;
+}
+
+.stones button {
+  background: #f8ffad;
+}
+
+.bonus button {
+  background: #909467;
+}
+
+.bank button {
+  background: #fafbe7;
+}
+
+button.submit {
+  background: #aedfa4;
+  width: 90%;
+}
+
+.scores {
+  background: #aedfa4;
+  display: inline-block;
+  min-width: 200px;
+  margin: 20px;
+  color: #2f4858;
+}
+.playerName {
+  text-transform: uppercase;
+}
+.currentMove,
+.totalScore {
+  font-weight: normal;
 }

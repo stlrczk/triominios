@@ -6,7 +6,7 @@ import BankWithdrawals from "./BankWithdrawals";
 
 import { BONUSES, BANK_WITHDRAWALS } from "./constants";
 
-export default () => {
+export default ({ name }) => {
   const [totalPlayerScore, setTotalPlayerScore] = useState(0);
   const [currentStone, setCurrentStone] = useState({});
   const [currentBonusKey, setCurrentBonusKey] = useState("nil");
@@ -28,8 +28,9 @@ export default () => {
   };
 
   return (
-    <div>
+    <div className="playerCard">
       <ScoreIndicator
+        playerName={name}
         totalScore={totalPlayerScore}
         currentMoveScore={currentMoveScore}
       />
@@ -49,7 +50,9 @@ export default () => {
         currentWithdraw={currentWithdraw}
       />
       <hr />
-      <button onClick={submitMove}>Submit</button>
+      <button className="submit" onClick={submitMove}>
+        Submit
+      </button>
     </div>
   );
 };
