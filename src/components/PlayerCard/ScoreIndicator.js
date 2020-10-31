@@ -2,7 +2,11 @@ import React from "react";
 
 export default ({ totalScore, currentMoveScore }) => (
   <div>
-    Total: {totalScore}
-    {currentMoveScore ? `, current move: ${currentMoveScore}` : null}
+    <h1>
+      Total: {totalScore}
+      {currentMoveScore ? (
+        <small>{`, current move: ${currentMoveScore}`}</small>
+      ) : null}
+    </h1>
   </div>
 );

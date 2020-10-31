@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+small {
+  font-size: 60%;
+  font-weight: normal;
+}
+
 button {
   padding: 20px;
   margin: 10px;
