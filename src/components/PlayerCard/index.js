@@ -6,11 +6,22 @@ import BankWithdrawals from "./BankWithdrawals";
 
 import { BONUSES, BANK_WITHDRAWALS } from "./constants";
 
+const getSavedTotalPlayerScore = (name) => {
+  const savedUserTotal = localStorage.getItem(`user-${name}`);
+  console.log({ savedUserTotal });
+  if (/\d/.test(savedUserTotal)) {
+    return parseInt(savedUserTotal, 10);
+  }
+  return 0;
+};
+
 export default ({ name }) => {
-  const [totalPlayerScore, setTotalPlayerScore] = useState(0);
+  const [totalPlayerScore, setTotalPlayerScore] = useState(
+    getSavedTotalPlayerScore(name)
+  );
   const [currentStone, setCurrentStone] = useState({});
-  const [currentBonusKey, setCurrentBonusKey] = useState("nil");
-  const [currentWithdraw, setCurrentWidthdraw] = useState("nil");
+  const [currentBonusKey, setCurrentBonusKey] = useState("∅");
+  const [currentWithdraw, setCurrentWidthdraw] = useState("∅");
 
   const currentMoveScore = useMemo(() => {
     return (
@@ -21,10 +32,20 @@ export default ({ name }) => {
   }, [currentStone, currentBonusKey, currentWithdraw]);
 
   const submitMove = () => {
-    setTotalPlayerScore(totalPlayerScore + currentMoveScore);
+    const newTotal = totalPlayerScore + currentMoveScore;
+    localStorage.setItem(`user-${name}`, newTotal);
+    setTotalPlayerScore(newTotal);
     setCurrentStone({});
-    setCurrentBonusKey("nil");
-    setCurrentWidthdraw("nil");
+    setCurrentBonusKey("∅");
+    setCurrentWidthdraw("∅");
+  };
+
+  const handleReset = () => {
+    localStorage.setItem(`user-${name}`, 0);
+    setTotalPlayerScore(0);
+    setCurrentStone({});
+    setCurrentBonusKey("∅");
+    setCurrentWidthdraw("∅");
   };
 
   return (
@@ -46,9 +67,14 @@ export default ({ name }) => {
         onWithdrawSelect={(withdrawCode) => setCurrentWidthdraw(withdrawCode)}
         currentWithdraw={currentWithdraw}
       />
-      <button className="submit" onClick={submitMove}>
-        Submit
-      </button>
+      <div className="actions">
+        <button className="reset" onClick={handleReset}>
+          ❌
+        </button>
+        <button className="submit" onClick={submitMove}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

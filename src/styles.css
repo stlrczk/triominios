@@ -62,10 +62,19 @@ button.active {
 .bonus button {
   font-size: 20px;
 }
+
+.actions {
+  display: flex;
+}
+
+button.reset {
+  background: none;
+  border: 1px dotted #fafbe7;
+}
+
 button.submit {
   background: #aedfa4;
-  width: 90%;
-  margin-bottom: 0;
+  flex-grow: 1;
 }
 
 .scores {
