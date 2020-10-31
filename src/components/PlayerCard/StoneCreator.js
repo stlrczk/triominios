@@ -16,6 +16,7 @@ export default ({ onStoneUpdate, currentStoneSides = {} }) => {
   };
 
   const handleClearSides = () => {
+    onStoneUpdate({});
     setCurrentSide(0);
   };
 
